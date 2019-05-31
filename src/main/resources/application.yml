@@ -1,0 +1,11 @@
+feign:
+  name: currency
+  url: https://api.exchangeratesapi.io
+  httpclient:
+    disable-ssl-validation: true
+    enabled: false
+  okhttp:
+    enabled: true
+
+currency:
+  base: "EUR"
