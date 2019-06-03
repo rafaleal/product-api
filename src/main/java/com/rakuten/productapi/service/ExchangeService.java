@@ -7,7 +7,7 @@ import java.util.Currency;
 
 public interface ExchangeService {
 
-    QuoteDTO findRate(Currency currency);
+    QuoteDTO getQuote(Currency currency);
 
     Money exchangeAmount(Money money);
 
