@@ -1,6 +1,6 @@
 package com.rakuten.productapi.repository;
 
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ class ProductMongoRepositoryIT {
     @Autowired
     private ProductMongoRepository productMongoRepository;
 
-    @Before
+    @BeforeEach
     public void setup() { productMongoRepository.deleteAll(); }
 
     @Test
