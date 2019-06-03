@@ -1,6 +1,6 @@
 feign:
   name: currency
-  url: https://api.exchangeratesapi.io
+  url: https://api.exchangeratesapi.io/latest
   httpclient:
     disable-ssl-validation: true
     enabled: false
@@ -9,3 +9,9 @@ feign:
 
 currency:
   base: "EUR"
+
+spring:
+  security:
+    user:
+      name: <>
+      password: <>
