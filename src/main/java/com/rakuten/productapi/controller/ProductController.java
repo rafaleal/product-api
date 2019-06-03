@@ -1,6 +1,7 @@
 package com.rakuten.productapi.controller;
 
 import com.rakuten.productapi.domain.Product;
+import com.rakuten.productapi.dto.ProductDTO;
 import com.rakuten.productapi.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,11 +19,10 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 import java.util.UUID;
 
-import static com.rakuten.productapi.constant.Endpoints.API_PRODUCTS;
-import static com.rakuten.productapi.constant.Endpoints.API_PRODUCTS_ID;
-import static com.rakuten.productapi.constant.Endpoints.API_V1;
+import static com.rakuten.productapi.constant.Endpoints.*;
 
 @RefreshScope
 @RestController
@@ -42,7 +42,7 @@ public class ProductController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation("Posts the product with title, description, price, currency and categories")
     @ApiResponses(value = {@ApiResponse(code = 200, message = "OK", response = Product.class)})
-    public ResponseEntity<Product> postProduct(@RequestBody Product product) {
+    public ResponseEntity<Product> postProduct(@RequestBody ProductDTO product) {
         Product returnedProduct = this.productService.createProduct(product);
 
         URI uriOfNewResource = ServletUriComponentsBuilder.fromCurrentContextPath()
@@ -59,9 +59,16 @@ public class ProductController {
     @DeleteMapping(value = API_PRODUCTS_ID)
     @ApiOperation("Deletes the product")
     public ResponseEntity deleteProduct(@PathVariable UUID uuid) {
-
+        this.productService.deleteProduct(uuid);
 
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping(value = API_PRODUCTS_ID)
+    @ApiOperation("Update categories in respective product")
+    public ResponseEntity<Product> patchProduct(@PathVariable UUID uuid, @RequestBody List<String> categories) {
+
+        return new ResponseEntity<>(this.productService.updateProduct(uuid, categories), HttpStatus.OK);
     }
 
 
