@@ -10,8 +10,6 @@ feign:
 currency:
   base: "EUR"
 
-spring:
-  security:
-    user:
-      name: <>
-      password: <>
+server:
+  port: 9090
+
