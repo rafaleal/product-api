@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+
+  app:
+    image: rakuten/product-api
+    depends_on:
+      - mongo
+    ports:
+    - 9090:9090
+    network_mode: "host"
