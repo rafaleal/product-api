@@ -39,7 +39,7 @@ public class QuoteDTO {
         return date;
     }
 
-    public String getErrror() {
+    public String getError() {
         return error;
     }
 
