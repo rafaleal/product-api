@@ -1,6 +1,6 @@
 package com.rakuten.productapi.config;
 
-import com.rakuten.productapi.controller.ProductController;
+import com.rakuten.productapi.controller.ProductRestController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableSwagger2
 @PropertySource("classpath:swagger.yml")
-@ComponentScan(basePackageClasses = ProductController.class)
+@ComponentScan(basePackageClasses = ProductRestController.class)
 @Configuration
 public class SwaggerConfig {
     private static final String SWAGGER_API_VERSION = "1.0";
