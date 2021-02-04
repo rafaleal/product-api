@@ -1,7 +1,7 @@
 # Rakuten's Product REST API
 This is a Product API prototype using Spring Boot, OpenFeign and MongoDB running in docker container.
 
-####Main functions:
+### Main functions:
 - Product creation (standard price in EUR)
 - Product removal
 - Create products in other currencies and automatically convert to EUR
