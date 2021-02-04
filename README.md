@@ -1,4 +1,4 @@
-# Rakuten's Product REST API
+# Product REST API
 This is a Product API prototype using Spring Boot, OpenFeign and MongoDB running in docker container.
 
 ### Main functions:
